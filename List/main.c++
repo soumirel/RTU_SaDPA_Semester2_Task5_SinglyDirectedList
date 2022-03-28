@@ -35,7 +35,8 @@ int main() {
 	int userMenuChoice = -1;
 	int userCreatingChoice = -1;
 
-	while (userMenuChoice != 0) { // √лавный меню-цикл.
+	// √лавный меню-цикл.
+	while (userMenuChoice != 0) { 
 		system("cls");
 		printMenu(L1, L2);
 
@@ -66,7 +67,7 @@ int main() {
 			system("pause");
 			break;
 
-		//формирование LSpec
+		//формирование L
 		case 2:
 			if (L1.getSize() && L2.getSize())
 			{
@@ -127,6 +128,7 @@ int main() {
 }
 
 
+//‘ункци€ вывода меню
 template<typename T>
 void printMenu(List<T>& l1, List<T>& l2)
 {
@@ -147,6 +149,7 @@ void printMenu(List<T>& l1, List<T>& l2)
 }
 
 
+//‘ункци€ задани€ списка
 template<typename T>
 void createList(List<T>& l)
 {
@@ -163,6 +166,7 @@ void createList(List<T>& l)
 }
 
 
+//‘ункци€ вывода списка
 template<typename T>
 void printList(List<T>& listToPrint)
 {	
@@ -181,6 +185,7 @@ void printList(List<T>& listToPrint)
 }
 
 
+//‘ункци€ сборки так называемого set'a из L1 и L2
 template<typename T>
 List<T>& combineLists(List<T>& l1, List<T>& l2)
 {
@@ -206,9 +211,15 @@ List<T>& combineLists(List<T>& l1, List<T>& l2)
 }
 
 
+//”даление €чеек на четных позици€х
 template<typename T>
 void deleteEvenCells(List<T>& l)
 {
+	/* ѕрактическим путЄм было вы€снено, что если последовательно удал€ть из массива
+	* €чейки с индексами i = 0, 1, ... n, где n - кол-во €чеек с четным номером,
+	* то будут удалены все €чейки на четных позици€х, т.к при удалении какой-либо €чейки 
+	* инексаци€ свдигаетс€. ј кол-во четных позиций будет равно размеру массива,
+	* целочисленно подЄленному на 2. */
 	size_t forSize = l.getSize() / 2;
 	for (size_t i = 0; i < forSize; i++)
 	{
@@ -217,6 +228,7 @@ void deleteEvenCells(List<T>& l)
 }
 
 
+//‘ункци€ дл€ вставки суммы пары после пары €чеек 
 template<typename T>
 void magicalRework(List<T>& l)
 {
