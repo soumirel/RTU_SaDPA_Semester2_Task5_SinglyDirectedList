@@ -136,7 +136,7 @@ long List<T>::lFind(T data)
 	{
 		Node<T>* current = this->head;
 		long counter = 0;
-		while (current->ptrNext != nullptr)
+		while (current != nullptr)
 		{
 			counter++;
 			if (current->data == data)
